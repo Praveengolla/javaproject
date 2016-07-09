@@ -1,0 +1,12 @@
+LoadModule  dav_module             modules/mod_dav.so
+LoadModule  dav_svn_module         modules/mod_dav_svn.so
+LoadModule  authz_svn_module       modules/mod_authz_svn.so
+<Location /REPO>
+  DAV svn
+  SVNPath c:/repos/REPO                                                    
+  AuthType Basic
+  AuthName "Subversion Project1 repository"
+  AuthUserFile c:/etc/svn-users
+  Require valid-user
+  AuthzSVNAccessFile c:/etc/svn-access
+</Location>
